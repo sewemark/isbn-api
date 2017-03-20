@@ -8,6 +8,11 @@ var Sequelize = require('sequelize')
         host :  "us-cdbr-iron-east-03.cleardb.net",
     dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
     port:    3306, // or 5432 (for postgres)
+    logging: console.log,
+    define: {
+        timestamps: false
+    }
+
 });
 
 app.set('port', (process.env.PORT || 5000));
