@@ -60,6 +60,7 @@ app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
     book.retrieveAll(function(books) {
+        console.log(books);
         if (books) {
             res.json(books);
         } else {
