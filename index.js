@@ -30,13 +30,13 @@ app.get('/listUsers', function (req, res) {
     });
 });
 
-sequelize.authenticate().complete(function (err) {
-    if (err) {
-        console.log('There is connection in ERROR');
-    } else {
-        console.log('Connection has been established successfully');
-    }
-});
+sequelize
+    .authenticate()
+    .then(function(err) {
+        console.log('Connection has been established successfully.');
+    }, function (err) {
+        console.log('Unable to connect to the database:', err);
+    });
 /*var con = mysql.createConnection({
     host: "us-cdbr-iron-east-03.cleardb.net",
     user: "b1b91341831a61",
