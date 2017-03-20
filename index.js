@@ -53,7 +53,7 @@ var Book = sequelize.define('Book', {
 },{
     instanceMethods: {
         retrieveAll: function(onSuccess, onError) {
-            Book.findAll({raw: true}).success(onSuccess).error(onError);
+            Book.findAll({raw: true}).then(onSuccess).catch(onError);
         }}}
         );
 app.get('/listBooks', function (req, res) {
