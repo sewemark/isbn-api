@@ -43,7 +43,7 @@ sequelize
         console.log('Unable to connect to the database:', err);
     });
 
-var Book = sequelize.define('Book', {
+var Book = sequelize.define('books', {
     ID :Sequelize.INTEGER,
     ISBN :Sequelize.STRING,
     Title: Sequelize.STRING,
