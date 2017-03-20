@@ -50,11 +50,16 @@ var Book = sequelize.define('Book', {
     Author: Sequelize.STRING,
     Publisher: Sequelize.STRING,
     PublishDate :Sequelize.DATEONLY,
-});
+},{
+    instanceMethods: {
+        retrieveAll: function(onSuccess, onError) {
+            Book.findAll({}, {raw: true}).success(onSuccess).error(onError);
+        }}}
+        );
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
-    book.retrieveAll(function(books) {
+    book.findAll(function(books) {
         if (book) {
             res.json(book);
         } else {
