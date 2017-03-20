@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var pg = require('pg');
+var mysql = require('mysql');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -22,8 +23,27 @@ app.get('/listUsers', function (req, res) {
         res.end( data );
     });
 });
-
-
+// First you need to create a connection to the db
+var con = mysql.createConnection({
+    host: "mysql://b1b91341831a61:95ec8e44@us-cdbr-iron-east-03.cleardb.net/heroku_91e003e8105144e?reconnect=true",
+    user: "b1b91341831a61",
+    password: "95ec8e44",
+    database: "heroku_91e003e8105144e"
+});
+con.connect(function(err){
+    if(err){
+        console.log('Error connecting to Db');
+        return;
+    }
+    console.log('Connection established');
+});
+con.end(function(err) {
+    // The connection is terminated gracefully
+    // Ensures all previously enqueued queries are still
+    // before sending a COM_QUIT packet to the MySQL server.
+    if(err) console.log('err: ', err);
+    else console.log('Terminated done: ');
+});
 
 app.get('/db', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
