@@ -52,7 +52,7 @@ var Book = sequelize.define('Book', {
     PublishDate :Sequelize.DATEONLY,
 });
 
-sequelize.sync({force:false}).then(function (err) {
+sequelize.sync({force:true}).then(function (err) {
     if(err){
         console.log('An error occur while creating table');
     }else{
