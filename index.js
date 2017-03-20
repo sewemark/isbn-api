@@ -25,7 +25,7 @@ app.get('/listUsers', function (req, res) {
 });
 // First you need to create a connection to the db
 var con = mysql.createConnection({
-    host: "us-cdbr-iron-east-03.cleardb.net/heroku_91e003e8105144e?reconnect=true",
+    host: "us-cdbr-iron-east-03.cleardb.net",
     user: "b1b91341831a61",
     password: "95ec8e44",
     database: "heroku_91e003e8105144e"
