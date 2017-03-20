@@ -30,6 +30,11 @@ app.get('/listUsers', function (req, res) {
     });
 });
 
+
+
+
+
+
 sequelize
     .authenticate()
     .then(function(err) {
@@ -37,6 +42,23 @@ sequelize
     }, function (err) {
         console.log('Unable to connect to the database:', err);
     });
+
+var Book = sequelize.define('Book', {
+    ID :Sequelize.INTEGER,
+    ISBN :Sequelize.STRING,
+    Title: Sequelize.STRING,
+    Author: Sequelize.STRING,
+    Publisher: Sequelize.STRING,
+    PublishDate :Sequelize.DATEONLY,
+});
+
+sequelize.sync({force:false}).then(function (err) {
+    if(err){
+        console.log('An error occur while creating table');
+    }else{
+        console.log('Book table created successfully');
+    }
+});
 /*var con = mysql.createConnection({
     host: "us-cdbr-iron-east-03.cleardb.net",
     user: "b1b91341831a61",
