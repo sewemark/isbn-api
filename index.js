@@ -3,6 +3,12 @@ var app = express();
 var fs = require("fs");
 var pg = require('pg');
 var mysql = require('mysql');
+var Sequelize = require('sequelize')
+    , sequelize = new Sequelize('heroku_91e003e8105144e', 'b1b91341831a61', '95ec8e44', {
+        host :  "us-cdbr-iron-east-03.cleardb.net",
+    dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
+    port:    3306, // or 5432 (for postgres)
+});
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -23,8 +29,15 @@ app.get('/listUsers', function (req, res) {
         res.end( data );
     });
 });
-// First you need to create a connection to the db
-var con = mysql.createConnection({
+
+sequelize.authenticate().complete(function (err) {
+    if (err) {
+        console.log('There is connection in ERROR');
+    } else {
+        console.log('Connection has been established successfully');
+    }
+});
+/*var con = mysql.createConnection({
     host: "us-cdbr-iron-east-03.cleardb.net",
     user: "b1b91341831a61",
     password: "95ec8e44",
@@ -44,7 +57,7 @@ con.end(function(err) {
     if(err) console.log('err: ', err);
     else console.log('Terminated done: ');
 });
-
+*/
 app.get('/db', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT * FROM test_table', function(err, result) {
