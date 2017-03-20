@@ -51,14 +51,30 @@ var Book = sequelize.define('Book', {
     Publisher: Sequelize.STRING,
     PublishDate :Sequelize.DATEONLY,
 });
+app.get('/listBooks', function (req, res) {
+    var book = Book.build();
 
-sequelize.sync({force:true}).then(function (err) {
+    book.retrieveAll(function(books) {
+        if (book) {
+            res.json(book);
+        } else {
+            res.send(401, "Books not found");
+        }
+    }, function(error) {
+        res.send("Books not found");
+    });
+   /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+        console.log( data );
+        res.end( data );
+    });*/
+});
+/*sequelize.sync({force:true}).then(function (err) {
     if(err){
         console.log('An error occur while creating table');
     }else{
         console.log('Book table created successfully');
     }
-});
+});*/
 /*var con = mysql.createConnection({
     host: "us-cdbr-iron-east-03.cleardb.net",
     user: "b1b91341831a61",
