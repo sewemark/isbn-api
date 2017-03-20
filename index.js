@@ -59,7 +59,7 @@ var Book = sequelize.define('Book', {
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
-    book.findAll(function(books) {
+    book.retrieveAll(function(books) {
         if (book) {
             res.json(book);
         } else {
