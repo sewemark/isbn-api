@@ -60,8 +60,8 @@ app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
     book.retrieveAll(function(books) {
-        if (book) {
-            res.json(book);
+        if (books) {
+            res.json(books);
         } else {
             res.send(401, "Books not found");
         }
