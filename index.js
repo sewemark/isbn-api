@@ -67,6 +67,7 @@ app.get('/listBooks', function (req, res) {
             res.send(401, "Books not found");
         }
     }, function(error) {
+        console.log(error);
         res.send("Books not found");
     });
    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
