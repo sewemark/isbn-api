@@ -97,34 +97,29 @@ app.get('/listBooks', function (req, res) {
         res.end( data );
     });*/
 });
-/*sequelize.sync({force:true}).then(function (err) {
-    if(err){
-        console.log('An error occur while creating table');
-    }else{
-        console.log('Book table created successfully');
-    }
-});*/
-/*var con = mysql.createConnection({
-    host: "us-cdbr-iron-east-03.cleardb.net",
-    user: "b1b91341831a61",
-    password: "95ec8e44",
-    database: "heroku_91e003e8105144e"
+
+
+app.get('/listOpinions', function (req, res) {
+    var opinion = Opinion.build();
+
+    opinion.retrieveAll(function(opinions) {
+        console.log(opinions);
+        if (opinions) {
+            res.json(opinions);
+        } else {
+            res.send(401, "Opinions not found");
+        }
+    }, function(error) {
+        console.log(error);
+        res.send("Opinions not found");
+    });
+    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+     console.log( data );
+     res.end( data );
+     });*/
 });
-con.connect(function(err){
-    if(err){
-        console.log('Error connecting to Db');
-        return;
-    }
-    console.log('Connection established');
-});
-con.end(function(err) {
-    // The connection is terminated gracefully
-    // Ensures all previously enqueued queries are still
-    // before sending a COM_QUIT packet to the MySQL server.
-    if(err) console.log('err: ', err);
-    else console.log('Terminated done: ');
-});
-*/
+
+
 app.get('/db', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT * FROM test_table', function(err, result) {
