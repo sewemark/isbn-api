@@ -68,14 +68,14 @@ var Opinion = sequelize.define('opinions',{
     IsUsers :Sequelize.BOOLEAN,
     CreateDate :Sequelize.DATEONLY,
     Text: Sequelize.STRING,
-    Rate :Sequelize.SHORT,
+    Rate :Sequelize.INTEGER,
 },{
     instanceMethods :{
         retrieveAll : function (onSuccces, onError) {
             Opinion.findAll({raw:true}).then(onSuccces).catch(onError);
         }
     }
-})
+});
 Book.hasMany(Opinion, {foreignKey:'BookID'});
 
 app.get('/listBooks', function (req, res) {
