@@ -60,7 +60,24 @@ var Book = sequelize.define('books', {
         retrieveAll: function(onSuccess, onError) {
             Book.findAll({raw: true}).then(onSuccess).catch(onError);
         }}}
-        );
+);
+
+var Opinion = sequelize.define('opinions',{
+    ID :Sequelize.INTEGER,
+    Author: Sequelize.STRING,
+    IsUsers :Sequelize.BOOLEAN,
+    CreateDate :Sequelize.DATEONLY,
+    Text: Sequelize.STRING,
+    Rate :Sequelize.SHORT,
+},{
+    instanceMethods :{
+        retrieveAll : function (onSuccces, onError) {
+            Opinion.findAll({raw:true}).then(onSuccces).catch(onError);
+        }
+    }
+})
+Book.hasMany(Opinion, {foreignKey:'BookID'});
+
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
