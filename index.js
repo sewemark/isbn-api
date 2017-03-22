@@ -125,7 +125,7 @@ Book.hasMany(Opinion, {foreignKey:'BookID'});
 Role.hasMany(User, {foreignKey:'RoleID'});
 User.hasMany(UserSettings, {foreignKey:'UserID'});
 Role.hasMany(User, {foreignKey: 'RoleID'});
-User.belongsTo(Shelve, { foreignKey: 'UserID' });
+User.hasOne(Shelve, { foreignKey: 'UserID' });
 Book.belongsToMany(Shelve, {  through: ShelveHasBooks, foreignKey: 'Books_ID' });
 Shelve.belongsToMany(Book, {  through: ShelveHasBooks, foreignKey: 'Shelves_ID' });
 
