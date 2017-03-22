@@ -118,7 +118,7 @@ var Opinion = sequelize.define('opinions',{
 Book.hasMany(Opinion, {foreignKey:'BookID'});
 Role.hasMany(User, {foreignKey:'RoleID'});
 User.hasMany(UserSettings, {foreignKey:'UserID'});
-User.hasMany(Role, {foreignKey: 'RoleID'});
+Role.hasMany(User, {foreignKey: 'RoleID'});
 Book.belongsToMany(Shelve, {  through: ShelveHasBooks, foreignKey: 'Books_ID' });
 Shelve.belongsToMany(Book, {  through: ShelveHasBooks, foreignKey: 'Shelves_ID' });
 
