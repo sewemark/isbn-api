@@ -66,6 +66,12 @@ var Role = sequelize.define('roles',{
 var Shelve = sequelize.define('shelves',{
     ID :Sequelize.INTEGER,
 
+},{
+    instanceMethods :{
+        retrieveAll : function (onSuccces, onError) {
+            Shelve.findAll({raw:true}).then(onSuccces).catch(onError);
+        }
+    }
 });
 var ShelveHasBooks = sequelize.define('shelves_has_books',{
     ID :Sequelize.INTEGER,
@@ -138,6 +144,26 @@ app.get('/listBooks', function (req, res) {
         console.log( data );
         res.end( data );
     });*/
+});
+
+app.get('/listShelves', function (req, res) {
+    var shelve = Shelve.build();
+
+    shelve.retrieveAll(function(shelves) {
+        console.log(shelves);
+        if (shelves) {
+            res.json(shelves);
+        } else {
+            res.send(401, "Shelves not found");
+        }
+    }, function(error) {
+        console.log(error);
+        res.send("Shelves not found");
+    });
+    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+     console.log( data );
+     res.end( data );
+     });*/
 });
 
 
