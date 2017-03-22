@@ -193,7 +193,7 @@ app.get('/listOpinions', function (req, res) {
 app.get('/listUsers', function (req, res) {
     var user = User.build();
 
-    user.getRoles(function(users) {
+    user.getShelves(function(users) {
         console.log(users);
         if (users) {
             res.json(users);
@@ -215,7 +215,7 @@ app.get('/listRoles', function (req, res) {
 
     role.retrieveAll(function(roles) {
         console.log(roles);
-        if (rolese) {
+        if (roles) {
             res.json(roles);
         } else {
             res.send(401, "Roles not found");
