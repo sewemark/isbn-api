@@ -46,8 +46,8 @@ var User = sequelize.define('users',{
 },{
     instanceMethods: {
         retrieveAll: function(onSuccess, onError) {
-            User.findAll({raw: true,include:[
-                {model:Role}]
+            User.findAll({raw: true
+                //,include:[{model:Role}]
             }).then(onSuccess).catch(onError);
         }}});
 
@@ -187,7 +187,7 @@ app.get('/listOpinions', function (req, res) {
 app.get('/listUsers', function (req, res) {
     var user = User.build();
 
-    user.retrieveAll(function(users) {
+    user.getRoles(function(users) {
         console.log(users);
         if (users) {
             res.json(users);
