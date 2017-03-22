@@ -48,6 +48,44 @@ sequelize
         console.log('Unable to connect to the database:', err);
     });
 
+
+
+var User = sequelize.define('users',{
+    ID :Sequelize.INTEGER,
+    Username :Sequelize.STRING,
+    Password: Sequelize.STRING,
+    IsActive: Sequelize.BOOLEAN,
+    CreateDate :Sequelize.DATEONLY,
+});
+
+var Role = sequelize.define('roles',{
+    ID :Sequelize.INTEGER,
+    RoleName :Sequelize.STRING,
+
+});
+var Shelve = sequelize.define('shelves',{
+    ID :Sequelize.INTEGER,
+
+});
+var ShelveHasBooks = sequelize.define('shelves_has_books',{
+    ID :Sequelize.INTEGER,
+
+});
+var GlobalParameters = sequelize.define('globalparameters',{
+    ID :Sequelize.INTEGER,
+    Name :Sequelize.STRING,
+    BaseAddress :Sequelize.STRING,
+});
+
+var UserSettings = sequelize.define('usersettings',{
+    ID :Sequelize.INTEGER,
+    SettingKey :Sequelize.STRING,
+    SettingNValue :Sequelize.INTEGER,
+    SettingDValue :Sequelize.DOUBLE,
+    SettingSalue :Sequelize.STRING,
+    SettingBValue :Sequelize.BOOLEAN,
+});
+
 var Book = sequelize.define('books', {
     ID :Sequelize.INTEGER,
     ISBN :Sequelize.STRING,
@@ -78,7 +116,10 @@ var Opinion = sequelize.define('opinions',{
     }
 });
 Book.hasMany(Opinion, {foreignKey:'BookID'});
-
+Role.hasMany(User, {foreignKey:'RoleID'});
+User.hasMany(UserSettings, {foreignKey:'UserID'});
+Book.belongsToMany(Shelve, {  through: 'shelves_has_books', foreignKey: 'bookID' });
+Shelve.belongsToMany(Book, {  through: 'shelves_has_books', foreignKey: 'shelveID' });
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
@@ -113,6 +154,46 @@ app.get('/listOpinions', function (req, res) {
     }, function(error) {
         console.log(error);
         res.send("Opinions not found");
+    });
+    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+     console.log( data );
+     res.end( data );
+     });*/
+});
+
+app.get('/listUsers', function (req, res) {
+    var user = User.build();
+
+    opinion.retrieveAll(function(users) {
+        console.log(users);
+        if (users) {
+            res.json(users);
+        } else {
+            res.send(401, "Users not found");
+        }
+    }, function(error) {
+        console.log(error);
+        res.send("Users not found");
+    });
+    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+     console.log( data );
+     res.end( data );
+     });*/
+});
+
+app.get('/listRoles', function (req, res) {
+    var role = Role.build();
+
+    opinion.retrieveAll(function(roles) {
+        console.log(roles);
+        if (rolese) {
+            res.json(roles);
+        } else {
+            res.send(401, "Roles not found");
+        }
+    }, function(error) {
+        console.log(error);
+        res.send("Roles not found");
     });
     /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
      console.log( data );
