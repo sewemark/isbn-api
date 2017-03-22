@@ -14,8 +14,7 @@
     "express": "4.13.3",
     "mysql": "^2.13.0",
     "pg": "^6.1.4",
-    "sequelize": "^1.7.11",
-    "sequelize-restful": "^0.4.3"
+    "sequelize": "^1.7.11"
   },
   "repository": {
     "type": "git",
