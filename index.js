@@ -246,7 +246,7 @@ app.get('/db', function (request, response) {
 });
 
 
-app.use(restful(sequelize));
+//app.use(restful(sequelize));
 
 
 app.listen(app.get('port'), function() {
