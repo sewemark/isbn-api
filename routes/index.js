@@ -7,7 +7,7 @@ router.use(function(req, res, next) {
 });
 
 router.get('/books', function(req, res) {
-    models.Books.findAll({
+    models.books.findAll({
         //include: [ models.Task ]
     }).then(function(books) {
         res.render('index', {
