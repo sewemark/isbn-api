@@ -103,8 +103,8 @@ var Book = sequelize.define('books', {
     instanceMethods: {
         retrieveAll: function(onSuccess, onError) {
             Book.findAll({raw: true,include:[
-                {model:Opinion},
-                {mode:Shelve}]}).then(onSuccess).catch(onError);
+                {model:Opinion}]
+                }).then(onSuccess).catch(onError);
         }}}
 );
 
@@ -191,7 +191,7 @@ app.get('/listOpinions', function (req, res) {
 app.get('/listUsers', function (req, res) {
     var user = User.build();
 
-    opinion.retrieveAll(function(users) {
+    user.getShelves(function(users) {
         console.log(users);
         if (users) {
             res.json(users);
@@ -211,7 +211,7 @@ app.get('/listUsers', function (req, res) {
 app.get('/listRoles', function (req, res) {
     var role = Role.build();
 
-    opinion.retrieveAll(function(roles) {
+    role.retrieveAll(function(roles) {
         console.log(roles);
         if (rolese) {
             res.json(roles);
