@@ -5,24 +5,13 @@ var pg = require('pg');
 var mysql = require('mysql');
 var routes = require('./routes/index');
 
-var Sequelize = require('sequelize')
-    , sequelize = new Sequelize('heroku_91e003e8105144e', 'b1b91341831a61', '95ec8e44', {
-        host :  "us-cdbr-iron-east-03.cleardb.net",
-    dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
-    port:    3306, // or 5432 (for postgres)
-    logging: console.log,
-    define: {
-        timestamps: false
-    }
-
-});
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views'); 
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
@@ -30,17 +19,11 @@ app.get('/', function(request, response) {
 });
 
 app.use('/api', routes);
-sequelize
-    .authenticate()
-    .then(function(err) {
-        console.log('Connection has been established successfully.');
-    }, function (err) {
-        console.log('Unable to connect to the database:', err);
-    });
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
 
-
-
-var User = sequelize.define('users',{
+/*var User = sequelize.define('users',{
     ID :Sequelize.INTEGER,
     Username :Sequelize.STRING,
     Password: Sequelize.STRING,
@@ -52,7 +35,7 @@ var User = sequelize.define('users',{
             User.findAll({raw: true
                 ,include:[{ model:Shelve }]
             }).then(onSuccess).catch(onError);
-        }}});
+}}});
 
 var Role = sequelize.define('roles',{
     ID :Sequelize.INTEGER,
@@ -131,8 +114,8 @@ Role.hasMany(User, {foreignKey: 'RoleID'});
 User.hasOne(Shelve, { foreignKey: 'UserID' });
 Book.belongsToMany(Shelve, {  through: ShelveHasBooks, foreignKey: 'Books_ID' });
 Shelve.belongsToMany(Book, {  through: ShelveHasBooks, foreignKey: 'Shelves_ID' });
-
-
+*/
+/*
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
@@ -147,10 +130,6 @@ app.get('/listBooks', function (req, res) {
         console.log(error);
         res.send("Books not found");
     });
-   /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-        console.log( data );
-        res.end( data );
-    });*/
 });
 
 app.get('/listShelves', function (req, res) {
@@ -167,10 +146,7 @@ app.get('/listShelves', function (req, res) {
         console.log(error);
         res.send("Shelves not found");
     });
-    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-     console.log( data );
-     res.end( data );
-     });*/
+
 });
 
 
@@ -188,10 +164,7 @@ app.get('/listOpinions', function (req, res) {
         console.log(error);
         res.send("Opinions not found");
     });
-    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-     console.log( data );
-     res.end( data );
-     });*/
+
 });
 
 app.get('/listUsers', function (req, res) {
@@ -208,10 +181,7 @@ app.get('/listUsers', function (req, res) {
         console.log(error);
         res.send("Users not found");
     });
-    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-     console.log( data );
-     res.end( data );
-     });*/
+
 });
 
 app.get('/listRoles', function (req, res) {
@@ -228,10 +198,7 @@ app.get('/listRoles', function (req, res) {
         console.log(error);
         res.send("Roles not found");
     });
-    /* fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-     console.log( data );
-     res.end( data );
-     });*/
+
 });
 
 
@@ -247,12 +214,8 @@ app.get('/db', function (request, response) {
     });
 });
 
+*/
 
-app.use(routes);
 
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
 
 
