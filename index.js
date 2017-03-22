@@ -29,7 +29,7 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.user('/api', routes);
+app.use('/api', routes);
 sequelize
     .authenticate()
     .then(function(err) {
