@@ -3,6 +3,7 @@ var app = express();
 var fs = require("fs");
 var pg = require('pg');
 var mysql = require('mysql');
+var restful   = require('sequelize-restful')
 var Sequelize = require('sequelize')
     , sequelize = new Sequelize('heroku_91e003e8105144e', 'b1b91341831a61', '95ec8e44', {
         host :  "us-cdbr-iron-east-03.cleardb.net",
@@ -245,7 +246,7 @@ app.get('/db', function (request, response) {
 });
 
 
-
+app.use(restful(sequelize));
 
 
 app.listen(app.get('port'), function() {
