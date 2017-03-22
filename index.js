@@ -56,7 +56,13 @@ var User = sequelize.define('users',{
     Password: Sequelize.STRING,
     IsActive: Sequelize.BOOLEAN,
     CreateDate :Sequelize.DATEONLY,
-});
+},{
+    instanceMethods: {
+        retrieveAll: function(onSuccess, onError) {
+            User.findAll({raw: true,include:[
+                {model:Role}]
+            }).then(onSuccess).catch(onError);
+        }}});
 
 var Role = sequelize.define('roles',{
     ID :Sequelize.INTEGER,
@@ -125,8 +131,11 @@ var Opinion = sequelize.define('opinions',{
 Book.hasMany(Opinion, {foreignKey:'BookID'});
 Role.hasMany(User, {foreignKey:'RoleID'});
 User.hasMany(UserSettings, {foreignKey:'UserID'});
+User.hasMany(Role, {foreignKey: 'RoleID'});
 Book.belongsToMany(Shelve, {  through: ShelveHasBooks, foreignKey: 'Books_ID' });
 Shelve.belongsToMany(Book, {  through: ShelveHasBooks, foreignKey: 'Shelves_ID' });
+
+
 app.get('/listBooks', function (req, res) {
     var book = Book.build();
 
@@ -191,7 +200,7 @@ app.get('/listOpinions', function (req, res) {
 app.get('/listUsers', function (req, res) {
     var user = User.build();
 
-    user.getShelves(function(users) {
+    user.retrieveAll(function(users) {
         console.log(users);
         if (users) {
             res.json(users);
