@@ -103,7 +103,8 @@ var Book = sequelize.define('books', {
     instanceMethods: {
         retrieveAll: function(onSuccess, onError) {
             Book.findAll({raw: true,include:[
-                {model:Opinion}]}).then(onSuccess).catch(onError);
+                {model:Opinion},
+                {mode:Shelve}]}).then(onSuccess).catch(onError);
         }}}
 );
 
