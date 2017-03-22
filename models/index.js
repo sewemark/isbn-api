@@ -34,6 +34,8 @@ var db  = {};
         db[model.name] = model;
     });*/
 var model = sequelize.import(path.join(__dirname, 'book.js'));
+console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5");
+console.log(model.name);
 db[model.name] = model;
 
 Object.keys(db).forEach(function(modelName) {
