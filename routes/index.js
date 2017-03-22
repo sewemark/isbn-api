@@ -10,7 +10,7 @@ router.get('/books', function(req, res) {
     models.books.findAll({
         //include: [ models.Task ]
     }).then(function(books) {
-        res.render('index', {
+        res.send({
             title: 'Sequelize: Bangla',
             books: books
         });
