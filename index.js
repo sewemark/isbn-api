@@ -27,19 +27,6 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-
-app.get('/listUsers', function (req, res) {
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-        console.log( data );
-        res.end( data );
-    });
-});
-
-
-
-
-
-
 sequelize
     .authenticate()
     .then(function(err) {
