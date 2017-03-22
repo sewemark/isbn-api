@@ -55,7 +55,13 @@ var Role = sequelize.define('roles',{
     ID :Sequelize.INTEGER,
     RoleName :Sequelize.STRING,
 
-});
+},{
+    instanceMethods: {
+        retrieveAll: function(onSuccess, onError) {
+            Role.findAll({raw: true,
+                include:[{model:User}]
+            }).then(onSuccess).catch(onError);
+        }}});
 var Shelve = sequelize.define('shelves',{
     ID :Sequelize.INTEGER,
 
