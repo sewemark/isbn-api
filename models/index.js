@@ -42,7 +42,7 @@ db[modelBook.name] = modelBook;
 
 
 var modelUser = sequelize.import(path.join(__dirname, 'user.js'));
-db[model.name] = modelUser;
+db[modelUser.name] = modelUser;
 
 var modelRole = sequelize.import(path.join(__dirname, 'role.js'));
 db[modelRole.name] = modelRole;
