@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="041fa8df-a922-4bda-ac99-514aa9a5931c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/globalParameter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/role.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/shelve.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/shelveHasBooks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/user.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/userSetting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/book.js" afterPath="$PROJECT_DIR$/models/book.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/index.js" afterPath="$PROJECT_DIR$/models/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +31,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+            <state relative-caret-position="204">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -40,21 +48,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="opinion.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/opinion.js">
+      <file leaf-file-name="globalParameter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/globalParameter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            <state relative-caret-position="340">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+            <state relative-caret-position="271">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shelveHasBooks.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/shelveHasBooks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -63,58 +81,48 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="341">
+              <caret line="55" column="77" lean-forward="false" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sequelize.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/sequelize/lib/sequelize.js">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11458">
-              <caret line="674" column="0" lean-forward="false" selection-start-line="674" selection-start-column="0" selection-end-line="674" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="shelve.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/shelve.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="role.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/role.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
+      <file leaf-file-name="opinion.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/opinion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="44" lean-forward="false" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -155,9 +163,16 @@
         <option value="$PROJECT_DIR$/routes/books/index.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/models/index.js" />
         <option value="$PROJECT_DIR$/models/opinion.js" />
+        <option value="$PROJECT_DIR$/models/User.js" />
+        <option value="$PROJECT_DIR$/models/userSettings.js" />
+        <option value="$PROJECT_DIR$/models/globalParameters.js" />
+        <option value="$PROJECT_DIR$/models/shelveHasBooks.js" />
+        <option value="$PROJECT_DIR$/models/index.js" />
+        <option value="$PROJECT_DIR$/models/role.js" />
+        <option value="$PROJECT_DIR$/models/user.js" />
         <option value="$PROJECT_DIR$/models/book.js" />
+        <option value="$PROJECT_DIR$/models/shelve.js" />
       </list>
     </option>
   </component>
@@ -327,12 +342,12 @@
       <workItem from="1490038451328" duration="6711000" />
       <workItem from="1490125641419" duration="4139000" />
       <workItem from="1490202073231" duration="18302000" />
-      <workItem from="1490304339861" duration="1117000" />
+      <workItem from="1490304339861" duration="2334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40346000" />
+    <option name="totallyTimeSpent" value="41563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="25" width="1346" height="683" extended-state="0" />
@@ -341,6 +356,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -353,7 +369,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -368,30 +383,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/opinion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -442,6 +433,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -510,6 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -616,6 +609,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -675,6 +669,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/userSetting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/globalParameter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/opinion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="44" lean-forward="false" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/shelveHasBooks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -683,34 +709,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/models/role.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="341">
+          <caret line="55" column="77" lean-forward="false" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/opinion.js">
+    <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="322">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/book.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        <state relative-caret-position="271">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/shelve.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>

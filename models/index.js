@@ -37,8 +37,28 @@ var db  = {};
 var modelOpinion = sequelize.import(path.join(__dirname, 'opinion.js'));
 db[modelOpinion.name] = modelOpinion;
 
-var model = sequelize.import(path.join(__dirname, 'book.js'));
-db[model.name] = model;
+var modelBook = sequelize.import(path.join(__dirname, 'book.js'));
+db[modelBook.name] = modelBook;
+
+
+var modelUser = sequelize.import(path.join(__dirname, 'user.js'));
+db[model.name] = modelUser;
+
+var modelRole = sequelize.import(path.join(__dirname, 'role.js'));
+db[modelRole.name] = modelRole;
+
+var modelGlobalParameter = sequelize.import(path.join(__dirname, 'globalParameter.js'));
+db[modelGlobalParameter.name] = modelGlobalParameter;
+
+var modelShelve = sequelize.import(path.join(__dirname, 'shelve.js'));
+db[modelShelve.name] = modelShelve;
+
+var modelShelveHasBook = sequelize.import(path.join(__dirname, 'shelveHasBook.js'));
+db[modelShelveHasBook.name] = modelShelveHasBook;
+
+var modelUserSetting = sequelize.import(path.join(__dirname, 'userSetting.js'));
+db[modelUserSetting.name] = modelUserSetting;
+
 
 Object.keys(db).forEach(function(modelName) {
     if ("associate" in db[modelName]) {
