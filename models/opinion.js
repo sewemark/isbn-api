@@ -2,12 +2,12 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Opinion = sequelize.define('opinions',{
-        ID :Sequelize.INTEGER,
-        Author: Sequelize.STRING,
-        IsUsers :Sequelize.BOOLEAN,
-        CreateDate :Sequelize.DATEONLY,
-        Text: Sequelize.STRING,
-        Rate :Sequelize.INTEGER,
+        ID :DataTypes.INTEGER,
+        Author: DataTypes.STRING,
+        IsUsers :DataTypes.BOOLEAN,
+        CreateDate :DataTypes.DATEONLY,
+        Text: DataTypes.STRING,
+        Rate :DataTypes.INTEGER,
     },{
         instanceMethods: {
             retrieveAll: function(onSuccess, onError) {
