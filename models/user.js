@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 User.hasMany(models.usersettings, {foreignKey:'UserID'});
-                User.hasOne(model.shelves, { foreignKey: 'UserID' });
+                User.hasOne(models.shelves, { foreignKey: 'UserID' });
             }
         }
     });
