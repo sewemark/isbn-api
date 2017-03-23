@@ -18,8 +18,9 @@ module.exports = function(sequelize, DataTypes) {
             classMethods: {
                 associate: function(models) {
                     console.log("^^^^^^^^^^^^^^6");
+                    console.log(models.opinions);
                     console.log(models);
-                    Book.hasMany(models.opinion)
+                    Book.hasMany(models.opinions)
                 }
             }
     });
