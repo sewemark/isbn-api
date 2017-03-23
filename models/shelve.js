@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         classMethods: {
             associate: function(models) {
-                Shelve.belongsToMany(models.books, {  through: ShelveHasBooks, foreignKey: 'Shelves_ID' });
+                Shelve.belongsToMany(models.books, {  through: models.shelves_has_books, foreignKey: 'Shelves_ID' });
             }
         }
     });

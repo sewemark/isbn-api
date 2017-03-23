@@ -40,6 +40,9 @@ db[modelOpinion.name] = modelOpinion;
 var modelBook = sequelize.import(path.join(__dirname, 'book.js'));
 db[modelBook.name] = modelBook;
 
+var modelShelveHasBook = sequelize.import(path.join(__dirname, 'shelveHasBook.js'));
+db[modelShelveHasBook.name] = modelShelveHasBook;
+
 
 var modelUser = sequelize.import(path.join(__dirname, 'user.js'));
 db[modelUser.name] = modelUser;
@@ -53,8 +56,6 @@ db[modelGlobalParameter.name] = modelGlobalParameter;
 var modelShelve = sequelize.import(path.join(__dirname, 'shelve.js'));
 db[modelShelve.name] = modelShelve;
 
-var modelShelveHasBook = sequelize.import(path.join(__dirname, 'shelveHasBook.js'));
-db[modelShelveHasBook.name] = modelShelveHasBook;
 
 var modelUserSetting = sequelize.import(path.join(__dirname, 'userSetting.js'));
 db[modelUserSetting.name] = modelUserSetting;
