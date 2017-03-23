@@ -39,4 +39,18 @@ router.get('/book/:book_id/delete', function(req, res) {
     });
 });
 
+
+/* Opinions */
+
+router.get('/opinions', function(req, res) {
+    models.opinions.findAll({
+        //include: [ models.Task ]
+    }).then(function(opinions) {
+        res.send({
+            title: 'Opinions: Bangla',
+            opinions: opinions
+        });
+    });
+});
+
 module.exports = router;
