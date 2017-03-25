@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 //Book.hasMany(models.Opinion)
+                GlobalParameter.hasMany(models.globalparameters, {foreignKey:'SourceID'});
             }
         }
     });
