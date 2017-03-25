@@ -77,4 +77,39 @@ router.get('/opinion/:opinion_id/delete', function(req, res) {
     });
 });
 
+
+/* Users */
+
+router.get('/users', function(req, res) {
+    models.users.findAll({
+    }).then(function(users) {
+        res.send({
+            title: 'Users: Bangla',
+            users: users
+        });
+    });
+});
+
+router.post('/user/create', function(req, res) {
+    models.users.create({
+        Username :req.body.username,
+        Password: req.body.password,
+        IsActive: req.body.ssactive,
+        CreateDate :req.body.createdate
+
+    }).then(function() {
+        res.redirect('/');
+    });
+});
+
+router.get('/user/:user_id/delete', function(req, res) {
+    models.users.destroy({
+        where: {
+            id: req.params.user_id
+        }
+    }).then(function() {
+        res.redirect('/');
+    });
+});
+
 module.exports = router;
