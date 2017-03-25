@@ -60,7 +60,7 @@ router.post('/opinion/create', function(req, res) {
         Text:  req.body.text,
         Rate : req.body.rate,
         BookID :req.body.bookid,
-        SourceId : req.body.sourceid
+        SourceID : req.body.sourceid
 
     }).then(function() {
         res.redirect('/');
