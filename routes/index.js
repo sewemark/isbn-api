@@ -54,7 +54,6 @@ router.get('/opinions', function(req, res) {
 
 router.post('/opinion/create', function(req, res) {
     models.opinions.create({
-        ISBN: req.body.isbn,
         Author:  req.body.author,
         IsUsers : req.body.isusers,
         CreateDate : req.body.createdate,
