@@ -44,12 +44,35 @@ router.get('/book/:book_id/delete', function(req, res) {
 
 router.get('/opinions', function(req, res) {
     models.opinions.findAll({
-        //include: [ models.Task ]
     }).then(function(opinions) {
         res.send({
             title: 'Opinions: Bangla',
             opinions: opinions
         });
+    });
+});
+
+router.post('/opinion/create', function(req, res) {
+    models.opinions.create({
+        ISBN: req.body.isbn,
+        Author:  req.body.author,
+        IsUsers : req.body.isusers,
+        CreateDate : req.body.createdate,
+        Text:  req.body.text,
+        Rate : req.body.rate,
+
+    }).then(function() {
+        res.redirect('/');
+    });
+});
+
+router.get('/opinion/:opinion_id/delete', function(req, res) {
+    models.opinions.destroy({
+        where: {
+            id: req.params.opinion_id
+        }
+    }).then(function() {
+        res.redirect('/');
     });
 });
 
