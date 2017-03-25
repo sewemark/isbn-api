@@ -95,7 +95,8 @@ router.post('/user/create', function(req, res) {
         Username :req.body.username,
         Password: req.body.password,
         IsActive: req.body.ssactive,
-        CreateDate :req.body.createdate
+        CreateDate :req.body.createdate,
+        RoleID : req.body.roleid
 
     }).then(function() {
         res.redirect('/');
