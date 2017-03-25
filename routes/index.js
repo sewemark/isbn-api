@@ -20,9 +20,9 @@ router.get('/books', function(req, res) {
 router.post('/book/create', function(req, res) {
     models.books.create({
         ISBN: req.body.isbn,
-        Title: "test2",
-        Author: "test3",
-        PublishDate: "01-01-2001",
+        Title: req.body.title,
+        Author: req.body.author,
+        PublishDate: req.body.publishdate,
 
     }).then(function() {
         res.redirect('/');
