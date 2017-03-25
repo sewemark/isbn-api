@@ -59,6 +59,7 @@ router.post('/opinion/create', function(req, res) {
         CreateDate : req.body.createdate,
         Text:  req.body.text,
         Rate : req.body.rate,
+        BookID :req.body.bookid
 
     }).then(function() {
         res.redirect('/');
