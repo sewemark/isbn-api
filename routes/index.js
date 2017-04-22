@@ -89,14 +89,16 @@ router.get('/users', function(req, res) {
         });
     });
 });
+const defultRoleId  = 1;
 
 router.post('/user/create', function(req, res) {
+    console.log(req.body);
     models.users.create({
         Username :req.body.username,
         Password: req.body.password,
-        IsActive: req.body.ssactive,
-        CreateDate :req.body.createdate,
-        RoleID : req.body.roleid
+        IsActive: req.body.isactive,
+        CreateDate :new Date(),
+        RoleID : defultRoleId
 
     }).then(function() {
         res.redirect('/');
