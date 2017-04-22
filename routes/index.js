@@ -92,15 +92,10 @@ router.get('/users', function(req, res) {
 const defultRoleId  = 1;
 
 router.post('/user/create', function(req, res) {
-    console.log("*********");
-    console.log(req.body);
-    console.log(req.body.Username)
-
-    console.log(req.body.username)
     models.users.create({
-        Username :req.body.username,
-        Password: req.body.password,
-        IsActive: req.body.isactive,
+        Username :req.body.Username,
+        Password: req.body.Password,
+        IsActive: req.body.IsActive,
         CreateDate :new Date(),
         RoleID : defultRoleId
 
