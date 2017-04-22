@@ -100,7 +100,7 @@ router.post('/user/create', function(req, res) {
         RoleID : defultRoleId
 
     }).then(function() {
-        res.redirect('/');
+        res.send(req.body);
     });
 });
 
