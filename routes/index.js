@@ -30,16 +30,27 @@ router.post('/user/login', function (req, res) {
 });
 
 router.post('/user/create', function(req, res) {
-    models.users.create({
-        Username :req.body.Username,
-        Password: req.body.Password,
-        IsActive: req.body.IsActive,
-        CreateDate :new Date(),
-        RoleID : defultRoleId
-
-    }).then(function() {
-        res.send(req.body);
-    });
+    models.users.findOne({where:{username: req.body.Username},raw: true})
+        .then(function (authUser) {
+            console.log(authUser);
+            if(authUser){
+                return res.status(409).send({
+                    success: false,
+                    message: 'User already exist.'
+                });
+            }else
+            {
+                models.users.create({
+                    Username :req.body.Username,
+                    Password: req.body.Password,
+                    IsActive: req.body.IsActive,
+                    CreateDate :new Date(),
+                    RoleID : defultRoleId
+                }).then(function() {
+                    res.send(req.body);
+                });
+            }
+        });
 });
 
 router.use(function(req, res, next) {
