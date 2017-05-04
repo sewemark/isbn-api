@@ -1,9 +1,66 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var jwt = require('jsonwebtoken');
+var app =  require('../index');
+const defultRoleId  = 1;
+
 router.use(function(req, res, next) {
     console.log('Something is happening.');
     next();
+});
+
+router.post('/user/login', function (req, res) {
+
+    models.users.findOne({where:{username: req.body.Username},raw: true})
+        .then(function (authUser) {
+            if (authUser.Password != req.body.Password) {
+                res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+            } else {
+                var token = jwt.sign(authUser, app.get('superSecret'), {
+                    expiresIn: 1440
+                });
+                res.json({
+                    success: true,
+                    message: 'Enjoy your token!',
+                    token: token
+                });
+            }
+        });
+});
+
+router.post('/user/create', function(req, res) {
+    models.users.create({
+        Username :req.body.Username,
+        Password: req.body.Password,
+        IsActive: req.body.IsActive,
+        CreateDate :new Date(),
+        RoleID : defultRoleId
+
+    }).then(function() {
+        res.send(req.body);
+    });
+});
+
+router.use(function(req, res, next) {
+
+    var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+    if (token) {
+        jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+            if (err) {
+                return res.json({ success: false, message: 'Failed to authenticate token.' });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        });
+
+    } else {
+        return res.status(403).send({
+            success: false,
+            message: 'No token provided.'
+        });
+    }
 });
 
 router.get('/books', function(req, res) {
@@ -89,20 +146,8 @@ router.get('/users', function(req, res) {
         });
     });
 });
-const defultRoleId  = 1;
 
-router.post('/user/create', function(req, res) {
-    models.users.create({
-        Username :req.body.Username,
-        Password: req.body.Password,
-        IsActive: req.body.IsActive,
-        CreateDate :new Date(),
-        RoleID : defultRoleId
 
-    }).then(function() {
-        res.send(req.body);
-    });
-});
 
 router.get('/user/:user_id/delete', function(req, res) {
     models.users.destroy({
