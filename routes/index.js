@@ -32,13 +32,13 @@ router.post('/user/login', function (req, res) {
 router.post('/user/create', function(req, res) {
     models.users.findOne({where:{username: req.body.Username},raw: true})
         .then(function (authUser) {
-            console.log(authUser);
+
             if(authUser){
                 return res.status(409).send({
                     success: false,
                     message: 'User already exist.'
                 });
-            }else
+            } else
             {
                 models.users.create({
                     Username :req.body.Username,
@@ -46,13 +46,19 @@ router.post('/user/create', function(req, res) {
                     IsActive: req.body.IsActive,
                     CreateDate :new Date(),
                     RoleID : defultRoleId
-                }).then(function() {
-                    res.send(req.body);
+                }).then(function(user) {
+                    console.log("&&&&&&&&&&&&&&&&&&");
+                    console.log(user.id);
+                    models.shelves.create({
+                        UserID: user.id,
+                    }).then(function (result) {
+                        res.send(result);
+                    })
                 });
             }
         });
 });
-
+/*
 router.use(function(req, res, next) {
 
     var token = req.body.token || req.param('token') || req.headers['x-access-token'];
@@ -72,7 +78,7 @@ router.use(function(req, res, next) {
             message: 'No token provided.'
         });
     }
-});
+});*/
 
 router.get('/books', function(req, res) {
     models.books.findAll({
@@ -92,8 +98,10 @@ router.post('/book/create', function(req, res) {
         Author: req.body.author,
         PublishDate: req.body.publishdate,
 
-    }).then(function() {
+    }).then(function(user) {
         res.redirect('/');
+
+
     });
 });
 
@@ -168,6 +176,122 @@ router.get('/user/:user_id/delete', function(req, res) {
     }).then(function() {
         res.redirect('/');
     });
+});
+
+
+/* Shelves */
+
+router.get('/user/:user_id/shelve', function(req, res) {
+    models.users.findOne({
+        where: {
+            id: req.params.user_id
+
+        },
+        include: [
+            { model: models.shelves
+               //,include: [models.shelves.shelves_has_books]
+            }
+        ],
+    }).then(function(user) {
+        models.shelves.findOne({
+            where: {
+                id: user.shelf.ID
+            },
+            include: [
+                {   model: models.books,
+                    through: {
+                        attributes: ['Title']
+                    }
+                    //    ,include: [models.shelves.books]
+                }
+            ],
+        }).then(function(result) {
+            res.send({
+                books:result.books
+                //    books:res
+            });
+        });
+    });
+});
+router.post('/user/:user_id/shelve', function(req, res) {
+    models.books.findOne({
+        where :{
+            Title:req.body.Title
+        }
+    }).then(function (result) {
+       if(!result || result.length ==0){
+
+           models.books.create({
+               ISBN: "",
+               Title: req.body.Title,
+               Author: "",
+               PublishDate: new Date()
+
+           }).then(function(createdBook) {
+               Add(createdBook);
+
+           }).catch(function (err) {
+               res.send("Error");
+           });
+       }
+       else{
+           Add(result);
+       }
+
+    });
+
+    function Add(createdBook) {
+        models.users.findOne({
+            where: {
+                id: req.params.user_id
+            },
+            include: [
+                { model: models.shelves
+                    //,include: [models.shelves.shelves_has_books]
+                }
+            ],
+        }).then(function (user) {
+            models.shelves_has_books.create({
+                Shelves_ID: user.shelf.id,
+                Shelves_UserID: user.id,
+                Books_ID: createdBook.id,
+            }).then(function(result) {
+                res.status(200).send("created");
+            }).catch(function(err) {
+                // print the error details
+                console.log(err);
+                res.status(200).send("already exist");
+            });
+        })
+    }
+});
+router.get('/shelves', function(req, res) {
+    models.shelves_has_books.findAll({
+    }).then(function(sh) {
+        res.send({
+            title: 'Users: Bangla',
+            sh: sh
+        });
+    });
+});
+
+router.get('/user/test', function(req, res) {
+    models.shelves.findAll({
+        include: [
+            {   model: models.books,
+                through: {
+                    attributes: ['Title']
+                }
+                //    ,include: [models.shelves.books]
+            }
+        ],
+    }).then(function(opinions) {
+        res.send({
+            title: 'Opinions: Bangla',
+            opinions: opinions
+        });
+    });
+
 });
 
 module.exports = router;

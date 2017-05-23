@@ -2,8 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var ShelveHasBooks = sequelize.define('shelves_has_books',{
-        ID :DataTypes.INTEGER,
-
+     ///  ID :DataTypes.INTEGER,
     },{
         instanceMethods: {
             retrieveAll: function(onSuccess, onError) {

@@ -18,6 +18,13 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 User.hasMany(models.usersettings, {foreignKey:'UserID'});
                 User.hasOne(models.shelves, { foreignKey: 'UserID' });
+                User.hasMany(models.shelves_has_books, {
+
+                    foreignKey:{
+                        name:'Shelves_UserID',
+                        unique: false
+                    },unique: false});
+                //User.belongsToMany(models.books, {  through: models.shelves_has_books, foreignKey: 'Shelves_ID' });
             }
         }
     });
