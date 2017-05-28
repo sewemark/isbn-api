@@ -8,13 +8,11 @@ module.exports = function(sequelize, DataTypes) {
     },{
         instanceMethods: {
             retrieveAll: function(onSuccess, onError) {
-                GlobalParameter.findAll({raw: true
-                    //,include:[{model:Opinion}]
-                }).then(onSuccess).catch(onError);
+                GlobalParameter.findAll({raw: true})
+                                .then(onSuccess).catch(onError);
             }},
         classMethods: {
             associate: function(models) {
-                //Book.hasMany(models.Opinion)
                 GlobalParameter.hasMany(models.opinions, {foreignKey:'SourceID'});
             }
         }

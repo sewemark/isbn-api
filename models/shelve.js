@@ -2,7 +2,6 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Shelve = sequelize.define('shelves',{
-    //    ID :DataTypes.INTEGER,
         ID : DataTypes.INTEGER
     },{
         instanceMethods :{

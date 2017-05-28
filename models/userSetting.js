@@ -12,14 +12,13 @@ module.exports = function(sequelize, DataTypes) {
         instanceMethods: {
             retrieveAll: function(onSuccess, onError) {
                 UserSetting.findAll({raw: true
-                    //,include:[{model:Opinion}]
                 }).then(onSuccess).catch(onError);
             }},
         classMethods: {
             associate: function(models) {
-                //Book.hasMany(models.Opinion)
             }
         }
     });
+
     return UserSetting;
 };

@@ -6,7 +6,7 @@ var app =  require('../index');
 const defultRoleId  = 1;
 
 router.use(function(req, res, next) {
-    console.log('Something is happening.');
+    console.log('First middleware.');
     next();
 });
 
