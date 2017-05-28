@@ -10,24 +10,7 @@ router.use(function(req, res, next) {
     next();
 });
 
-router.post('/user/login', function (req, res) {
 
-    models.users.findOne({where:{username: req.body.Username},raw: true})
-        .then(function (authUser) {
-            if (authUser.Password != req.body.Password) {
-                res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-            } else {
-                var token = jwt.sign(authUser, app.get('superSecret'), {
-                    expiresIn: 1440
-                });
-                res.json({
-                    success: true,
-                    message: 'Enjoy your token!',
-                    token: token
-                });
-            }
-        });
-});
 
 router.post('/user/create', function(req, res) {
     models.users.findOne({where:{username: req.body.Username},raw: true})
@@ -156,15 +139,6 @@ router.get('/opinion/:opinion_id/delete', function(req, res) {
 
 /* Users */
 
-router.get('/users', function(req, res) {
-    models.users.findAll({
-    }).then(function(users) {
-        res.send({
-            title: 'Users: Bangla',
-            users: users
-        });
-    });
-});
 
 
 

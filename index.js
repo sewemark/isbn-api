@@ -13,11 +13,13 @@ app.set('superSecret', "SuperSecrectRamPamPam!@@#$%");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.get('/', function(request, response) {
   response.send('Books api');
 });
 
 app.use('/api', routes);
+
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
