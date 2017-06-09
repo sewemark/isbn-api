@@ -14,7 +14,7 @@ router.use(function(req, res, next) {
 router.route('/user/login').post(userController.login);
 router.route('/user/create').post(userController.add);
 
-router.use(authMiddleware.authMiddleware);
+//router.use(authMiddleware.authMiddleware);
 
 /* Users */
 router.route('/users').get(userController.getAll);
